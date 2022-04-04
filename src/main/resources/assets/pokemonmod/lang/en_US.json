@@ -21,5 +21,7 @@
   "item.pokemonmod.medicinalleek": "Medicinal Leek",
   "item.pokemonmod.vivichoke": "Vivichoke",
   "item.pokemonmod.tumblestone": "Tumble Stone",
-  "tooltip.pokemonmod.item.pokeball": "A device for catching wild Pokémon."
+  "tooltip.pokemonmod.item.pokeball": "A device for catching wild Pokémon.",
+  "entity.pokemonmod.bidoof": "Bidoof",
+  "item.pokemonmod.bidoof_spawn_egg": "Bidoof Spawn Egg"
 }

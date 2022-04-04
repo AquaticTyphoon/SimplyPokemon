@@ -1,5 +1,4 @@
-package com.aquatictyphoon.pokemonmod.setup;
-
+package com.aquatictyphoon.pokemonmod.client;
 
 import com.aquatictyphoon.pokemonmod.PokemonMod;
 import com.aquatictyphoon.pokemonmod.client.models.BidoofModel;
@@ -15,11 +14,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = PokemonMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientSetup {
+public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void onStaticClientSetup(FMLClientSetupEvent event) {
-        event.setPhase(EventPriority.HIGH);
 
     }
 

@@ -1,11 +1,10 @@
 package com.aquatictyphoon.pokemonmod.setup.entities;
 
-import com.aquatictyphoon.pokemonmod.setup.Registration;
+import com.aquatictyphoon.pokemonmod.setup.registration.EntityTypeInit;
+import com.aquatictyphoon.pokemonmod.setup.registration.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,17 +16,15 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-import static com.aquatictyphoon.pokemonmod.setup.Registration.POKEBALL;
-import static com.aquatictyphoon.pokemonmod.setup.Registration.POKE_BALL;
 
 public class Pokeball_Entity extends ThrowableItemProjectile {
 
@@ -36,7 +33,7 @@ public class Pokeball_Entity extends ThrowableItemProjectile {
     }
 
     public Pokeball_Entity(LivingEntity entity, Level level, InteractionHand pHand) {
-        super(POKE_BALL.get(), entity, level);
+        super(EntityTypeInit.POKE_BALL.get(), entity, level);
         this.setOwner(entity);
         PokeballItem = entity.getItemInHand(pHand);
     }
@@ -45,7 +42,7 @@ public class Pokeball_Entity extends ThrowableItemProjectile {
 
 
     protected Item getDefaultItem() {
-        return (POKEBALL.get());
+        return (Registration.POKEBALL.get());
     }
 
     public static boolean containsEntity(@Nonnull ItemStack stack) {
@@ -91,7 +88,7 @@ public class Pokeball_Entity extends ThrowableItemProjectile {
                     ItemStack owned_ball = new ItemStack(Registration.POKEBALL.get());
                     owned_ball.setTag(nbt);
                     ItemEntity ball_drop = new ItemEntity(target.level, target.getX(), target.getY(), target.getZ(), owned_ball);
-                    level.addFreshEntity(ball_drop);
+                       level.addFreshEntity(ball_drop);
                     target.discard();
                     //System.out.println("CAPTURE SUCCESS!");
                 }
