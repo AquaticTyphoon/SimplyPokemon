@@ -23,8 +23,11 @@ public class PokemonEntity extends TamableAnimal {
             SynchedEntityData.defineId(PokemonEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> TYPE_2 =
             SynchedEntityData.defineId(PokemonEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> UNIQUE_ID =
+            SynchedEntityData.defineId(PokemonEntity.class, EntityDataSerializers.INT);
 
-    protected PokemonEntity(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
+
+    public PokemonEntity(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
         super(p_21803_, p_21804_);
     }
 
@@ -43,6 +46,7 @@ public class PokemonEntity extends TamableAnimal {
         this.entityData.define(GENDER, 3);
         this.entityData.define(TYPE_1, 0);
         this.entityData.define(TYPE_2, 0);
+        this.entityData.define(UNIQUE_ID, 0);
     }
 
     public int getPokemonLevel() {
@@ -84,6 +88,14 @@ public class PokemonEntity extends TamableAnimal {
 
     public void setType2(int type2) {
         getEntityData().set(TYPE_2, type2);
+    }
+
+    public int getUniqueID() {
+        return getEntityData().get(UNIQUE_ID);
+    }
+
+    public void setUniqueID(int unique_id) {
+        getEntityData().set(UNIQUE_ID, unique_id);
     }
 
 
